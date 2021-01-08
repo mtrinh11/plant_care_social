@@ -62,7 +62,7 @@ const Profile = (props) => {
             <div>
                 <h1>{props.weatherState.name}, {props.weatherState.sys.country} </h1>
                 <h2>{date()}</h2>
-                <i className={icon(props.weatherState.description.id)} style={{fontSize: '100px', color: 'green'}}></i>
+                <i className={icon(props.weatherState.description.id)} style={{fontSize: '100px', color: '#BCCCCA'}}></i>
                 <h2>{Math.round(props.weatherState.temp)}°F {(props.weatherState.description.description).replace(/\b\w/g, l => l.toUpperCase())} </h2>
                 <h2> 
                     Sunrise: {convertUnixTimestamptoTime(props.weatherState.sys.sunrise)}  

@@ -24,7 +24,7 @@ import HomeIcon from '@material-ui/icons/Home';
 import SettingsIcon from '@material-ui/icons/Settings';
 import PeopleIcon from '@material-ui/icons/People';
 
-import {getSearchResults} from '../store/actions/SearchActions'
+import {getSearchResults, clearSearchResults} from '../store/actions/SearchActions'
 
 const drawerWidth = 240;
 
@@ -39,6 +39,7 @@ const useStyles = makeStyles((theme) => ({
       duration: theme.transitions.duration.leavingScreen,
     }),
     display: 'flex',
+    backgroundColor: '#BCCCCA'
   },
   appBarShift: {
     marginLeft: drawerWidth,
@@ -98,27 +99,27 @@ const useStyles = makeStyles((theme) => ({
 const CssTextField = withStyles({
   root: {
     '& label.Mui-focused': {
-      color: 'white',
+      color: 'black',
     },
     '& label': {
-      color: 'white',
+      color: 'black',
     },
     '& .MuiInput-underline:after': {
-      borderBottomColor: 'white',
+      borderBottomColor: 'black',
     },
     '& .MuiOutlinedInput-root': {
       '& fieldset': {
-        borderColor: 'white',
+        borderColor: 'black',
       },
       '&:hover fieldset': {
-        borderColor: 'yellow',
+        borderColor: 'white',
       },
       '&.Mui-focused fieldset': {
-        borderColor: 'white',
+        borderColor: 'black',
       },
     },
     '& .MuiInputBase-root': {
-      color: 'white',
+      color: 'black',
     },
   },
 })(TextField);
@@ -132,7 +133,8 @@ const state = ({userState, searchState}) => {
 
 const actions = (dispatch) => {
   return {
-    fetchSearch: (query) => dispatch(getSearchResults(query))
+    fetchSearch: (query) => dispatch(getSearchResults(query)),
+    clearSearch: () => dispatch(clearSearchResults())
   }
 }
 
@@ -158,6 +160,7 @@ const ProfileNav = (props) => {
   const handleSearchSubmit = (e) => {
     e.preventDefault()
     try {
+      props.clearSearch()
       props.fetchSearch(searchQuery)
       props.history.push('/search')
     } catch (error) {
@@ -177,7 +180,7 @@ const ProfileNav = (props) => {
       >
         <Toolbar>
           <IconButton
-            color="inherit"
+            color="black"
             aria-label="open drawer"
             onClick={handleDrawerOpen}
             edge="start"
@@ -187,8 +190,8 @@ const ProfileNav = (props) => {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" noWrap style={{}}>
-            Hello, {props.userState.firstName}
+          <Typography variant="h6" noWrap style={{color: '#434343'}}>
+            Hello, {props.userState.firstName}!
           </Typography>
           <form className={classes.searchBar} noValidate onSubmit={handleSearchSubmit}>
             <CssTextField

@@ -77,7 +77,7 @@ const Signin = (props) => {
                 }}
             >
                 <div style={{margin: '20px'}}>
-                    <NavLink to='/' style={{textDecoration: 'none'}}><ArrowBackIosIcon/></NavLink>
+                    <NavLink to='/' style={{textDecoration: 'none', color: 'black'}}><ArrowBackIosIcon/></NavLink>
                 </div>
                 <form onSubmit={handleSubmit} className={classes.root} style={{textAlign: 'center', marginTop: '20vh'}}>
                     <TextField id="filled-basic" label="Email" required variant="filled" type="email" onChange={(e) => setInputEmail(e.target.value)}/>

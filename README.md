@@ -40,7 +40,7 @@ With __ you will be able to track your plants. It will tell you how to best take
 - live weather - https://openweathermap.org/
 - weather icons mapping - https://gist.github.com/tbranyen/62d974681dea8ee0caa1
 - converting Unix Timestamps to time -  https://stackoverflow.com/questions/847185/convert-a-unix-timestamp-to-time-in-javascript
-
+- images - https://unsplash.com/
 
 
 COPY plants FROM '/home/mtrinh/ga/project4/plants.csv' DELIMITER ',' CSV HEADER;
@@ -48,10 +48,9 @@ COPY plants FROM '/home/mtrinh/ga/project4/plants.csv' DELIMITER ',' CSV HEADER;
 todo
 
 -resources page
--add pagination for search results
+-add pagination for search results, use the next link
 -clean up waether display
--do homepage
 -add settings page -> add services and the backend stuff
 -add species page for review
--add  in check for searchlength =0
 -do a profile pic option
+-make the save changes on account settings actually update

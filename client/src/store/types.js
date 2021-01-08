@@ -2,6 +2,7 @@ export const LOGIN_USER = "LOGIN_USER"
 export const CLEAR_USER = "CLEAR_USER"
 
 export const GET_SEARCH_RESULTS = "GET_SEARCH_RESULTS"
+export const CLEAR_SEARCH_RESULTS = "CLEAR_SEARCH_RESULTS"
 
 export const GET_WEATHER = "GET_WEATHER"
 

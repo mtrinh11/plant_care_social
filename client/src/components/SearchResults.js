@@ -119,6 +119,7 @@ const SearchResults = (props) => {
                             </CardActions>
                         </Card>
                     ))}
+                    {props.searchState.data.data.length === 0 ? <p> Sorry, Looks like we have no data on that.</p>: null}
                 </div>
               : <p> Loading</p> 
             }

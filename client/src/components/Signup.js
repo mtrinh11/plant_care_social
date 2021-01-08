@@ -71,7 +71,7 @@ const Signup = (props) => {
                 }}
             >
                 <div style={{margin: '20px'}}>
-                    <NavLink to='/' style={{textDecoration: 'none'}}><ArrowBackIosIcon/></NavLink>
+                    <NavLink to='/' style={{textDecoration: 'none', color: 'black'}}><ArrowBackIosIcon/></NavLink>
                 </div>
                 <form onSubmit={handleSubmit} className={classes.root} style={{textAlign: 'center', marginTop: '20vh'}}>
                     <TextField onChange={(e) => setFirstName(e.target.value)}id="filled-basic" label="First Name" required variant="filled" />

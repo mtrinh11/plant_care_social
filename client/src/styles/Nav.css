@@ -1,23 +1,27 @@
 header nav {
-    /* background-color: #9FC1AA; */
     display: flex;
     flex-direction: row-reverse;
     align-items: center;
     grid-column: span 2;
+    color: 'black';
 }
 
-nav a {
+header nav a {
+    background-color: 'black';
     justify-content: flex-end;
     padding: 10px;
     text-decoration: none;
     cursor: pointer;
-    color: #F4EEED;
+    /* color: #F4EEED; */
+    color: 'black';
 
 }
 
-nav h1 {
-    margin-left: 30px; 
+header nav h1 {
+    background-color: 'black';
+    margin-left: 90px; 
     margin-right: 30px;
-    color:#F4EEED;
+    /* color:#F4EEED; */
+    color: 'black';
     flex-grow: 1;
 }
