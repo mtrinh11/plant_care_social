@@ -50,7 +50,5 @@ todo
 -resources page
 -add pagination for search results, use the next link
 -clean up waether display
--add settings page -> add services and the backend stuff
 -add species page for review
 -do a profile pic option
--make the save changes on account settings actually update

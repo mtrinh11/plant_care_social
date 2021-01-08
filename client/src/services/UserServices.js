@@ -49,4 +49,13 @@ export const __LoginUser = async (userData) => {
       throw error
     }
   }
+
+  export const __UpdateUser = async (userId, formData) => {
+    try {
+      const res = await ApiClient.post(`/user/update/${userId}`, formData)
+      return res.data
+    } catch (error) {
+      throw error
+    }
+  }
   

@@ -1,4 +1,5 @@
 import {connect} from 'react-redux'
+import {useState} from 'react'
 
 import {getWeather} from '../store/actions/WeatherActions'
 import {GetUserPlants} from '../store/actions/UserPlantActions'
@@ -48,11 +49,12 @@ const convertUnixTimestamptoTime = (unixstamp) => {
 }
 
 const Profile = (props) => {
+
     console.log(props)
-    if (!props.weatherState.fetched){
-        props.fetchWeather(90067)
+    if (!props.weatherState.fetched) {
+        props.fetchWeather(props.userState.zip)
     }
-    if (!props.userPlantState.babies){
+    if (!props.userPlantState.babies) {
         props.fetchUserPlants(props.userState.userId)
     }
 
@@ -69,7 +71,12 @@ const Profile = (props) => {
                     Sunset: {convertUnixTimestamptoTime(props.weatherState.sys.sunset)}
                 </h2>
             </div>
-            : <p>Loading...</p>
+            : <p>
+                Looks like we're having trouble loading your weather information... <br/>
+                This could be one of two reasons:<br/>
+                1. Your zip code is entered incorrectly in your Account Settings <br/>
+                2. We don't have the weather for that zip code.
+              </p>
             }
             {props.userPlantState.babies ? 
                 <div> 

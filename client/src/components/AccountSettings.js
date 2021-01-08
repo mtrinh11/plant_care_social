@@ -5,6 +5,9 @@ import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 
+import {__UpdateUser} from '../services/UserServices'
+import {loginUser} from '../store/actions/UserActions'
+
 const useStyles = makeStyles((theme) => ({
     root: {
       '& > *': {
@@ -20,7 +23,7 @@ const state = ({userState}) => {
 
 const actions = (dispatch) => {
     return {
-
+        refreshUserData: (data) => dispatch(loginUser(data))
     }
 }
 
@@ -42,7 +45,9 @@ const AccountSettings = (props) => {
                 zip: zipInput,
                 email: emailInput
             }
-            //send it to services
+            let res = await __UpdateUser(props.userState.userId, formData)
+            props.refreshUserData(res)
+            props.history.push('/profile')
         } catch (error) {
             throw error
         }
