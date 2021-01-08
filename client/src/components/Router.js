@@ -11,6 +11,8 @@ import ProfileNav from './ProfileNav'
 import SearchResults from './SearchResults'
 import SpecificSpecies from './SpecificSpecies'
 import UserPlants from './UserPlants'
+import AccountSettings from './AccountSettings'
+import FriendsFeed from './FriendsFeed';
 
 import { __CheckSession } from '../services/UserServices'
 import {clearUser, loginUser} from '../store/actions/UserActions'
@@ -32,14 +34,13 @@ const Router = (props) => {
 
     useEffect(() => {
         verifyTokenValid();
-    }, [])
+    })
 
     const verifyTokenValid = async () => {
         const token = localStorage.getItem('token')
         if (token) {
           try {
-            const session = await __CheckSession(token)
-            props.setUser(session.data.user)
+            await __CheckSession(token)
           } catch (error) {
             props.resetUser()
             localStorage.clear()
@@ -73,11 +74,28 @@ const Router = (props) => {
             />
             <ProtectedRoute 
                 exact 
+                path='/profile/settings'
+                component={(props) => (
+                    <ProfileNav {...props}>
+                        <AccountSettings {...props}/>
+                    </ProfileNav>
+                )}
+            />
+            <ProtectedRoute 
+                exact 
                 path='/search'
                 component={(props) => (
                     <ProfileNav {...props}>
-<<<<<<< HEAD
                         <SearchResults {...props}/>
+                    </ProfileNav>
+                    )}
+            />
+            <ProtectedRoute 
+                exact 
+                path='/friends'
+                component={(props) => (
+                    <ProfileNav {...props}>
+                        <FriendsFeed {...props}/>
                     </ProfileNav>
                     )}
             />
@@ -96,9 +114,6 @@ const Router = (props) => {
                 component={(props) => (
                     <ProfileNav {...props}>
                         <UserPlants/>
-=======
-                        <SearchResults />
->>>>>>> 7d569d8b33b38b9c87bb1e1b760efbc1bbefc6a7
                     </ProfileNav>
                     )}
             />

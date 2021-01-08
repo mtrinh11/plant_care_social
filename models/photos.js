@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       Photos.belongsTo(models.UserPlants, {
-        foreignKey: "user_plant_id",
+        foreignKey: "userPlant",
         onDelete: 'CASCADE',
         onUpdate: 'CASCADE'
       })

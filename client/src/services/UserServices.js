@@ -40,4 +40,13 @@ export const __LoginUser = async (userData) => {
       throw error;
     }
   };
+
+  export const __GetUserByEmail = async(formData) => {
+    try {
+      const res = await ApiClient.post(`user/search`, formData)
+      return res
+    } catch (error) {
+      throw error
+    }
+  }
   

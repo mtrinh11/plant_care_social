@@ -21,6 +21,8 @@ import TextField from '@material-ui/core/TextField';
 import EcoIcon from '@material-ui/icons/Eco';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import HomeIcon from '@material-ui/icons/Home';
+import SettingsIcon from '@material-ui/icons/Settings';
+import PeopleIcon from '@material-ui/icons/People';
 
 import {getSearchResults} from '../store/actions/SearchActions'
 
@@ -190,11 +192,12 @@ const ProfileNav = (props) => {
           </Typography>
           <form className={classes.searchBar} noValidate onSubmit={handleSearchSubmit}>
             <CssTextField
-              label="Search"
+              label="Search for Plants..."
               variant="outlined"
               id="custom-css-outlined-input"
               placeholder=' ie. Coconut Palm'
               onChange={(e) => setSearchQuery(e.target.value)}
+              size='small'
             />
           </form>
         </Toolbar>
@@ -230,7 +233,16 @@ const ProfileNav = (props) => {
           </ListItem>
         </List>
         <Divider />
+        <ListItem button onClick={() => props.history.push('/friends')}>
+            <ListItemIcon> <PeopleIcon  /> </ListItemIcon>
+            <ListItemText> Friends </ListItemText>
+          </ListItem>
+        <Divider />
         <List>
+          <ListItem button onClick={() => props.history.push('/profile/settings')}>
+            <ListItemIcon> <SettingsIcon /> </ListItemIcon>
+            <ListItemText> Account Settings </ListItemText>
+          </ListItem>
           <ListItem button onClick={signout}>
             <ListItemIcon> <ExitToAppIcon /> </ListItemIcon>
             <ListItemText> Sign Out </ListItemText>

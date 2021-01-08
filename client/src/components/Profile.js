@@ -1,33 +1,33 @@
 import {connect} from 'react-redux'
+
 import {getWeather} from '../store/actions/WeatherActions'
-import {useState} from 'react'
+import {GetUserPlants} from '../store/actions/UserPlantActions'
+
 import weatherIcons from '../styles/icons.json'
 import '../styles/WeatherIcons/css/weather-icons.css'
-// import '../styles/WeatherIcons/font'
-
 import Typography from '@material-ui/core/Typography';
 
-const state = ({weatherState, userState})=> {
+const state = ({weatherState, userState, userPlantState})=> {
     return {
         weatherState,
-        userState
+        userState,
+        userPlantState
     }
 }
 
 const actions = (dispatch) => {
     return {
-        fetchWeather: (zip) => dispatch(getWeather(zip))
+        fetchWeather: (zip) => dispatch(getWeather(zip)),
+        fetchUserPlants: (userId) => dispatch(GetUserPlants(userId))
     }
 }
 
 const icon = (code) => {
     let prefix = 'wi wi-';
     let icon = weatherIcons[code].icon;
-  
     if (!(code > 699 && code < 800) && !(code > 899 && code < 1000)) {
       icon = 'day-' + icon;
     }
-
     icon = prefix + icon;
     return icon
 }
@@ -40,24 +40,46 @@ const date = () => {
     return date
 }
 
+const convertUnixTimestamptoTime = (unixstamp) => {
+    let date = new Date(unixstamp * 1000)
+    let hours = date.getHours()
+    let minutes = '0' + date.getMinutes()
+    return `${hours}:${minutes.substr(-2)}`
+}
+
 const Profile = (props) => {
     console.log(props)
     if (!props.weatherState.fetched){
         props.fetchWeather(90067)
+    }
+    if (!props.userPlantState.babies){
+        props.fetchUserPlants(props.userState.userId)
     }
 
     return (
         <div>
             {props.weatherState.fetched ? 
             <div>
-                <h1>{props.weatherState.name}, US </h1>
+                <h1>{props.weatherState.name}, {props.weatherState.sys.country} </h1>
                 <h2>{date()}</h2>
                 <i className={icon(props.weatherState.description.id)} style={{fontSize: '100px', color: 'green'}}></i>
-                <h2>{Math.round(props.weatherState.temp)}°F {props.weatherState.description.description} </h2>
+                <h2>{Math.round(props.weatherState.temp)}°F {(props.weatherState.description.description).replace(/\b\w/g, l => l.toUpperCase())} </h2>
+                <h2> 
+                    Sunrise: {convertUnixTimestamptoTime(props.weatherState.sys.sunrise)}  
+                    Sunset: {convertUnixTimestamptoTime(props.weatherState.sys.sunset)}
+                </h2>
             </div>
-            :
-            <p>Loading...</p>
+            : <p>Loading...</p>
             }
+            {props.userPlantState.babies ? 
+                <div> 
+                    {props.userPlantState.babies.map((plant) => 
+                        <div> {plant.name} {plant.birthday}</div>
+                    )}
+                </div>
+            : <p> babies are loadin</p>
+            }
+            
             <Typography paragraph>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
             ut labore et dolore magna aliqua. Rhoncus dolor purus non enim praesent elementum

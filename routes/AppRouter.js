@@ -6,9 +6,9 @@ const PlantPhotoRouter = require('./PlantPhotoRouter')
 const PlantsDbRouter = require('./PlantsDbRouter')
 
 Router.use('/user', UserRouter)
-// Router.use('/plants', UserPlantsRouter)
+Router.use('/plants', UserPlantsRouter)
 // Router.use('/photos', PlantPhotoRouter)
-// Router.use('/friends', FriendsRouter)
+Router.use('/friends', FriendsRouter)
 Router.use('/search', PlantsDbRouter)
 
 module.exports = Router;

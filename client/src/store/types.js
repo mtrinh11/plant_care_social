@@ -4,3 +4,5 @@ export const CLEAR_USER = "CLEAR_USER"
 export const GET_SEARCH_RESULTS = "GET_SEARCH_RESULTS"
 
 export const GET_WEATHER = "GET_WEATHER"
+
+export const GET_USER_PLANTS = "GET_USER_PLANTS"

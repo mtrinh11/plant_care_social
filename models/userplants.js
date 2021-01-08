@@ -11,12 +11,12 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       UserPlants.belongsTo(models.User, {
-        foreignKey: "user_id",
+        foreignKey: "parent",
         onDelete: "CASCADE",
         onUpdate: "CASCADE",
       })
       UserPlants.hasMany(models.Photos,{
-        foreignKey: 'user_plant_id',
+        foreignKey: 'userPlant',
         onDelete: "CASCADE",
         onUpdate: "CASCADE"
       })

@@ -10,8 +10,7 @@ const hashPassword = async (password) => {
      @param {password}
      */
   try {
-    const hashedPassword = await bcrypt.hash(password, SALT_ROUNDS);
-
+    const hashedPassword = await bcrypt.hash(password, parseInt(SALT_ROUNDS));
     return hashedPassword;
   } catch (error) {
     console.log("Error Hashing Password");

@@ -39,6 +39,19 @@ With __ you will be able to track your plants. It will tell you how to best take
 - tab icon - https://www.flaticon.com/
 - live weather - https://openweathermap.org/
 - weather icons mapping - https://gist.github.com/tbranyen/62d974681dea8ee0caa1
-resources page
+- converting Unix Timestamps to time -  https://stackoverflow.com/questions/847185/convert-a-unix-timestamp-to-time-in-javascript
+
+
 
 COPY plants FROM '/home/mtrinh/ga/project4/plants.csv' DELIMITER ',' CSV HEADER;
+
+todo
+
+-resources page
+-add pagination for search results
+-clean up waether display
+-do homepage
+-add settings page -> add services and the backend stuff
+-add species page for review
+-add  in check for searchlength =0
+-do a profile pic option

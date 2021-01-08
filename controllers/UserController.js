@@ -58,16 +58,22 @@ const GetUser = async (request, response) => {
   }
 };
 
-const GetUserByEmail = async (request, response) => P
-try {
-
-} catch(error) {
-  throw error
-}
+const GetUserByEmail = async (request, response) => {
+  try {
+    const user = await User.findAll({
+      where: {email: request.body.email},
+      attributes: ["id", "firstName", "lastName", "email"]
+    })
+    response.send(user)
+  } catch(error) {
+    throw error
+  }
+};
 
 module.exports = {
   CreateUser,
   SessionStatus,
   LoginUser,
-  GetUser
+  GetUser,
+  GetUserByEmail
 }

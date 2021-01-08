@@ -29,7 +29,9 @@ const WeatherReducer = (state = initialState, action) => {
                 tempMin: action.payload.main.temp_min,
                 tempMax: action.payload.main.temp_max,
                 humidity: action.payload.main.humidity,
-                description: action.payload.weather[0]
+                description: action.payload.weather[0],
+                sys: action.payload.sys,
+                timezone: action.payload.timezone
             }
         default: 
             return {...state}

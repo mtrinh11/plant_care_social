@@ -3,6 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import {NavLink} from 'react-router-dom'
+import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 
 import {__LoginUser} from '../services/UserServices'
 import {connect} from 'react-redux'
@@ -61,7 +62,7 @@ const Signin = (props) => {
             <div 
                 style={{
                     height: '100%', 
-                    width:'50%',
+                    width:'60%',
                     backgroundImage:'url("https://images.unsplash.com/photo-1455793222120-98f37a8d4ede?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1908&q=80")',
                     backgroundSize: 'cover',
                     backgroundPosition: 'center'
@@ -72,10 +73,12 @@ const Signin = (props) => {
             <div 
                 style={{
                     height: '100%', 
-                    width:'50%'
+                    width:'40%'
                 }}
             >
-                <NavLink to='/' style={{textDecoration: 'none'}}>Home</NavLink>
+                <div style={{margin: '20px'}}>
+                    <NavLink to='/' style={{textDecoration: 'none'}}><ArrowBackIosIcon/></NavLink>
+                </div>
                 <form onSubmit={handleSubmit} className={classes.root} style={{textAlign: 'center', marginTop: '20vh'}}>
                     <TextField id="filled-basic" label="Email" required variant="filled" type="email" onChange={(e) => setInputEmail(e.target.value)}/>
                     <br/>

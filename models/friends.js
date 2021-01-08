@@ -5,16 +5,6 @@ const {
 module.exports = (sequelize, DataTypes) => {
   class Friends extends Model {
     static associate(models) {
-      // Friends.belongsTo(models.User, {
-      //   as: "sender",
-      //   onDelete: "CASCADE",
-      //   onUpdate: "CASCADE"
-      // })
-      // Friends.belongsTo(models.User, {
-      //   as: "accepter",
-      //   onDelete: "CASCADE",
-      //   onUpdate: "CASCADE"
-      // })
     }
   };
   Friends.init({

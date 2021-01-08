@@ -24,7 +24,7 @@ const userReducer = (state = initialState, action) => {
         case CLEAR_USER:
             return {
                 ...state,
-                authenticate: false,
+                authenticated: false,
                 userId: '' ,
                 email: '',
                 firstName: '',

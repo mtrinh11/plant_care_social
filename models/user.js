@@ -11,21 +11,21 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       User.hasMany(models.UserPlants, {
-        foreignKey: "user_id",
+        foreignKey: "parent",
         onDelete: "CASCADE",
         onUpdate: "CASCADE",
       })
       User.belongsToMany(models.User, {
         as: "friendOne",
         through: models.Friends,
-        foreignKey: "user1_id",
+        foreignKey: "userId",
         onDelete: "CASCADE",
         onUpdate: "CASCADE"
       })
       User.belongsToMany(models.User, {
         as: "friendTwo",
         through: models.Friends,
-        foreignKey: "user2_id",
+        foreignKey: "friendId",
         onDelete: "CASCADE",
         onUpdate: "CASCADE"
       })

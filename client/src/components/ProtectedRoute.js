@@ -8,9 +8,7 @@ const state = ({userState}) => {
 }
 
 const actions = (dispatch) => {
-    return {
-
-    }
+    return {}
 }
 
 const ProtectedRoute = ({userState, component:Component, ...rest}) => 

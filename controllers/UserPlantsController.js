@@ -58,7 +58,3 @@ module.exports = {
     DeletePlant,
     UpdatePlantDetails
 }
-
-git filter-branch --tree-filter 'rm -f ./plants.csv' HEAD
-git push --force --all
-e387855e1c84c70df6b3f3107b8f1fbaada29335
