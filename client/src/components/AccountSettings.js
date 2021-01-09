@@ -7,6 +7,7 @@ import Button from '@material-ui/core/Button';
 
 import {__UpdateUser} from '../services/UserServices'
 import {loginUser} from '../store/actions/UserActions'
+import {getWeather, clearWeather} from '../store/actions/WeatherActions'
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -17,13 +18,15 @@ const useStyles = makeStyles((theme) => ({
     },
   }));
 
-const state = ({userState}) => {
-    return {userState}
+const state = ({userState, weatherState}) => {
+    return {userState, weatherState}
 }
 
 const actions = (dispatch) => {
     return {
-        refreshUserData: (data) => dispatch(loginUser(data))
+        refreshUserData: (data) => dispatch(loginUser(data)),
+        fetchWeather: (zip) => dispatch(getWeather(zip)),
+        clearWeather: () => dispatch(clearWeather())
     }
 }
 
@@ -46,7 +49,8 @@ const AccountSettings = (props) => {
                 email: emailInput
             }
             let res = await __UpdateUser(props.userState.userId, formData)
-            props.refreshUserData(res)
+            await props.refreshUserData(res)
+            await props.clearWeather()
             props.history.push('/profile')
         } catch (error) {
             throw error

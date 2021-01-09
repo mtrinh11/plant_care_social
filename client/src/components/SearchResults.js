@@ -12,6 +12,8 @@ import Typography from '@material-ui/core/Typography';
 import { red } from '@material-ui/core/colors';
 import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline';
 import {AddPlantChild} from '../services/UserPlantServices'
+import {ClearUserPlants} from '../store/actions/UserPlantActions'
+
 
 const state = ({searchState, userState}) => {
     return {
@@ -21,7 +23,9 @@ const state = ({searchState, userState}) => {
 }
 
 const actions = (dispatch) => {
-    return {}
+    return {
+        clearUserPlants: () => dispatch(ClearUserPlants())
+    }
 }
 
 const useStyles = makeStyles((theme) => ({
@@ -71,6 +75,7 @@ const SearchResults = (props) => {
             TreffleId: tId
         }
         await AddPlantChild(formData)
+        await props.clearUserPlants()
         props.history.push('/profile')
     }
 

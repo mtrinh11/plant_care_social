@@ -1,4 +1,4 @@
-import {GET_WEATHER} from '../types'
+import {GET_WEATHER, CLEAR_WEATHER} from '../types'
 import {getWeatherByZipCode} from '../../services/WeatherServices'
 
 export const getWeather = (zip) => async(dispatch) => {
@@ -13,3 +13,7 @@ export const getWeather = (zip) => async(dispatch) => {
         throw error;
     }
 }
+
+export const clearWeather = () => ({
+    type: CLEAR_WEATHER
+})

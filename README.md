@@ -45,10 +45,13 @@ With __ you will be able to track your plants. It will tell you how to best take
 
 COPY plants FROM '/home/mtrinh/ga/project4/plants.csv' DELIMITER ',' CSV HEADER;
 
-todo
-
+Todo
 -resources page
 -add pagination for search results, use the next link
--clean up waether display
+-clean up weather display
 -add species page for review
 -do a profile pic option
+
+-notifications page
+-plant identifier by photo
+

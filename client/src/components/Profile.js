@@ -1,12 +1,22 @@
 import {connect} from 'react-redux'
-import {useState} from 'react'
 
 import {getWeather} from '../store/actions/WeatherActions'
-import {GetUserPlants} from '../store/actions/UserPlantActions'
+import {GetUserPlants, ClearUserPlants, GetUserPlantDetails} from '../store/actions/UserPlantActions'
 
 import weatherIcons from '../styles/icons.json'
 import '../styles/WeatherIcons/css/weather-icons.css'
 import Typography from '@material-ui/core/Typography';
+
+import React from 'react';
+import cx from 'clsx';
+import { makeStyles } from '@material-ui/core/styles';
+import Card from '@material-ui/core/Card';
+import CardMedia from '@material-ui/core/CardMedia';
+import CardContent from '@material-ui/core/CardContent';
+import Button from '@material-ui/core/Button';
+import TextInfoContent from '@mui-treasury/components/content/textInfo';
+import { useBlogTextInfoContentStyles } from '@mui-treasury/styles/textInfoContent/blog';
+import { useOverShadowStyles } from '@mui-treasury/styles/shadow/over';
 
 const state = ({weatherState, userState, userPlantState})=> {
     return {
@@ -19,7 +29,9 @@ const state = ({weatherState, userState, userPlantState})=> {
 const actions = (dispatch) => {
     return {
         fetchWeather: (zip) => dispatch(getWeather(zip)),
-        fetchUserPlants: (userId) => dispatch(GetUserPlants(userId))
+        fetchUserPlants: (userId) => dispatch(GetUserPlants(userId)),
+        clearUserPlants: () => dispatch(ClearUserPlants()),
+        getUserPlantDisplayData: (userPlants) => dispatch(GetUserPlantDetails(userPlants))
     }
 }
 
@@ -48,9 +60,74 @@ const convertUnixTimestamptoTime = (unixstamp) => {
     return `${hours}:${minutes.substr(-2)}`
 }
 
-const Profile = (props) => {
+const useStyles = makeStyles(({ breakpoints, spacing }) => ({
+    root: {
+      margin: 'auto',
+      borderRadius: spacing(2), // 16px
+      transition: '0.3s',
+      boxShadow: '0px 14px 80px rgba(34, 35, 58, 0.2)',
+      position: 'relative',
+      maxWidth: 500,
+      marginLeft: 'auto',
+      overflow: 'initial',
+      background: '#ffffff',
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      paddingBottom: spacing(2),
+      [breakpoints.up('md')]: {
+        flexDirection: 'row',
+        paddingTop: spacing(2),
+      },
+    },
+    media: {
+      width: '88%',
+      marginLeft: 'auto',
+      marginRight: 'auto',
+      marginTop: spacing(-3),
+      height: 0,
+      paddingBottom: '48%',
+      borderRadius: spacing(2),
+      backgroundColor: '#fff',
+      position: 'relative',
+      [breakpoints.up('md')]: {
+        width: '100%',
+        marginLeft: spacing(-3),
+        marginTop: 0,
+        transform: 'translateX(-8px)',
+      },
+      '&:after': {
+        content: '" "',
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        width: '100%',
+        height: '100%',
+        backgroundImage: 'linear-gradient(147deg, #fe8a39 0%, #fd3838 74%)',
+        borderRadius: spacing(2), // 16
+        opacity: 0.5,
+      },
+    },
+    content: {
+      padding: 24,
+    },
+    cta: {
+      marginTop: 24,
+      textTransform: 'initial',
+    },
+  }));
 
-    console.log(props)
+
+
+const Profile = (props) => {
+    const styles = useStyles();
+
+    const {
+        button: buttonStyles,
+        ...contentStyles
+      } = useBlogTextInfoContentStyles();
+    const shadowStyles = useOverShadowStyles();
+   
     if (!props.weatherState.fetched) {
         props.fetchWeather(props.userState.zip)
     }
@@ -58,6 +135,11 @@ const Profile = (props) => {
         props.fetchUserPlants(props.userState.userId)
     }
 
+    if (props.userPlantState.babies && !props.userPlantState.details) {
+        props.getUserPlantDisplayData(props.userPlantState.babies)
+    }
+
+    console.log(props)
     return (
         <div>
             {props.weatherState.fetched ? 
@@ -78,10 +160,31 @@ const Profile = (props) => {
                 2. We don't have the weather for that zip code.
               </p>
             }
-            {props.userPlantState.babies ? 
-                <div> 
-                    {props.userPlantState.babies.map((plant) => 
-                        <div> {plant.name} {plant.birthday}</div>
+            {props.userPlantState.details ? 
+                <div style={{display: 'grid', gridTemplateColumns: '50% 50%'}}> 
+                    {props.userPlantState.babies.map((plant, index) => 
+                        <div style={{padding: '10px 0 30px 20px', width: '90%', textAlign: 'center'}} key={index}> 
+                        {console.log(plant)}
+                            <Card className={cx(styles.root, shadowStyles.root)}>
+                                <CardMedia
+                                    className={styles.media}
+                                    image={
+                                        `${'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/1024px-No_image_available.svg.png'}`
+                                    }
+                                />
+                                <CardContent>
+                                    <TextInfoContent
+                                    classes={contentStyles}
+                                    overline={`${(new Date(plant.birthday)).toDateString()}`}
+                                    heading={`${plant.name}`}
+                                    body={
+                                        'Git is ang copy of the code and...'
+                                    }
+                                    />
+                                    <Button className={buttonStyles} style={{background: '#BCCCCA', boxShadow: 'none'}}>Edit Plant</Button>
+                                </CardContent>
+                            </Card>
+                        </div>
                     )}
                 </div>
             : <p> babies are loadin</p>

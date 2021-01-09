@@ -30,21 +30,19 @@ const GetPlantsByApiSearch = async (req, res) => {
     }
 }
 
-const GetPlantDetails = async(req, res) => {
+const GetPlantSpeciesDetailsByApi = async(req, res) => {
     try {
-        console.log(`${req.body.url}&token=${API_KEY}`)
-        const data = await request.get(`https://trefle.io/api/v1/species/search?q=evergreen&token=0lx9lxSIaxauq3MqKtjemMVisPfAxqzpPt3lygBqaXs`)
-        // const data = await request.get(`/api/v1/species/search?${slug}&token=${API_KEY}`)
-        // const data = await request.get(`/api/v1/plants?page=1&token=${API_KEY}`)
+        const data = await request.get(`/api/v1/species/${req.params.id}?token=${API_KEY}`)
         console.log(data.data)
         res.send(data.data)
     } catch (error) {
+        res.status(400).send({message: `Trefle Database is down`})
         throw error
     }
 }
 
 module.exports = {
     GetPlantsBySearch,
-    GetPlantDetails,
-    GetPlantsByApiSearch
+    GetPlantsByApiSearch,
+    GetPlantSpeciesDetailsByApi
 }

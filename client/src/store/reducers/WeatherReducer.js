@@ -1,4 +1,4 @@
-import {GET_WEATHER} from '../types';
+import {GET_WEATHER, CLEAR_WEATHER} from '../types';
 
 const initialState = {
     fetched: false,
@@ -11,7 +11,9 @@ const initialState = {
     tempMin: '',
     tempMax: '',
     humidity: '',
-    description: {}
+    description: {},
+    sys: {},
+    timezone: ''
 }
 
 const WeatherReducer = (state = initialState, action) => {
@@ -32,6 +34,23 @@ const WeatherReducer = (state = initialState, action) => {
                 description: action.payload.weather[0],
                 sys: action.payload.sys,
                 timezone: action.payload.timezone
+            }
+        case CLEAR_WEATHER:
+            return {
+                ...state,
+                fetched: false,
+                name: '',
+                cloudPercentage: '',
+                windSpeed: '',
+                windDeg: '',
+                temp: '',
+                feelsLike: '',
+                tempMin: '',
+                tempMax: '',
+                humidity: '',
+                description: {},
+                sys: {},
+                timezone: ''
             }
         default: 
             return {...state}

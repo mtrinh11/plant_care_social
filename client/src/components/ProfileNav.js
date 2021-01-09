@@ -180,7 +180,6 @@ const ProfileNav = (props) => {
       >
         <Toolbar>
           <IconButton
-            color="black"
             aria-label="open drawer"
             onClick={handleDrawerOpen}
             edge="start"
@@ -219,7 +218,6 @@ const ProfileNav = (props) => {
         }}
       >
         <div className={classes.toolbar}>
-          <p> plants</p>
           <IconButton onClick={handleDrawerClose}>
             {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
           </IconButton>
