@@ -83,7 +83,6 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
     justifyContent: 'flex-end',
     padding: theme.spacing(0, 1),
-    // necessary for content to be below app bar
     ...theme.mixins.toolbar,
   },
   content: {
@@ -228,10 +227,6 @@ const ProfileNav = (props) => {
             <ListItemIcon> <HomeIcon /> </ListItemIcon>
             <ListItemText> Home </ListItemText>
           </ListItem>
-          {/* <ListItem button onClick={() => props.history.push('/plantchildren')}>
-            <ListItemIcon> <EcoIcon /> </ListItemIcon>
-            <ListItemText> Your Plants </ListItemText>
-          </ListItem> */}
         </List>
         <Divider />
         <ListItem button onClick={() => props.history.push('/friends')}>

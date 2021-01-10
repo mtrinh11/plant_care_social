@@ -25,28 +25,24 @@ With Florista you will be able to track your plants. It will tell you how to bes
 * Node
 
 ## ERD
-
+![erd](./Capture.PNG)
 
 
 ## Post MVP
 - set up a forum for each plant
 - set up live messaging between friends
-- data storage optimization and api call optimization
+- data storage and api call optimization
+- add resources page
+- add profile picture option
+- add plant identifier by photo
+- add pagination for search results
 
 ## Credits
 - tab icon - https://www.flaticon.com/
-- live weather - https://openweathermap.org/
+- live weather api - https://openweathermap.org/
 - weather icons mapping - https://gist.github.com/tbranyen/62d974681dea8ee0caa1
+- weater icons - https://erikflowers.github.io/weather-icons/ 
 - converting Unix Timestamps to time -  https://stackoverflow.com/questions/847185/convert-a-unix-timestamp-to-time-in-javascript
 - images - https://unsplash.com/
-
-COPY plants FROM '/home/mtrinh/ga/project4/plants.csv' DELIMITER ',' CSV HEADER;
-
-Todo
--resources page
--add pagination for search results, use the next link
-1. add possibility to change plant details/edit plant page
--do a profile pic option
--notifications page
--plant identifier by photo API
-
+- plant data api - https://trefle.io/
+- ui components - https://material-ui.com/

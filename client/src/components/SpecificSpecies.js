@@ -157,17 +157,6 @@ const SpecificSpecies = (props) => {
                     alt='plant'
                     style={{maxHeight: '650px'}}
                 />
-                <IconButton 
-                    aria-label="add to children"
-                    onClick={() => addToUserPlants(
-                        speciesData.scientific_name, 
-                        props.userState.userId,
-                        new Date(),
-                        speciesData.id
-                    )}
-                >
-                    <AddCircleOutlineIcon/>
-                </IconButton>
                 <br/><br/> <br/>
                 <TableContainer component={Paper}>
                     <Table className={classes.table} aria-label="simple table">
