@@ -16,7 +16,7 @@ With Florista you will be able to track your plants. It will tell you how to bes
 - User will be able to add friends
 
 ## Technologies Used
-![PERN image grabbed from google search 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fgithub.com%2Ftopics%2Fpern%3Fo%3Ddesc%26s%3D&psig=AOvVaw3kqrt83yYeq9_zcVv1e7Bn&ust=1610397734476000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCOC33KWdku4CFQAAAAAdAAAAABAJ'](https://www.google.com/url?sa=i&url=https%3A%2F%2Fgithub.com%2Ftopics%2Fpern%3Fo%3Ddesc%26s%3D&psig=AOvVaw3kqrt83yYeq9_zcVv1e7Bn&ust=1610397734476000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCOC33KWdku4CFQAAAAAdAAAAABAJ)
+![PERN image grabbed from google search of 'pern stack'](https://repository-images.githubusercontent.com/248812720/56902700-c5bd-11ea-813f-ed8631377258)
 
 * Postgresql
 * Sequelize
