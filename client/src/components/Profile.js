@@ -167,6 +167,7 @@ const Profile = (props) => {
                 2. We don't have the weather for that zip code.
               </p>
             }
+            <br/> <br/> <br/> <br/>
             {props.userPlantState.details ? null : <p>Images are loading...</p>  }
             {props.userPlantState.babies ? 
                 <div style={{display: 'grid', gridTemplateColumns: '50% 50%'}}> 
@@ -198,29 +199,18 @@ const Profile = (props) => {
                 </div>
             : <p> babies are loadin</p>
             }
-            
+            <br/> <br/> <br/> <br/>
             <Typography paragraph>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-            ut labore et dolore magna aliqua. Rhoncus dolor purus non enim praesent elementum
-            facilisis leo vel. Risus at ultrices mi tempus imperdiet. Semper risus in hendrerit
-            gravida rutrum quisque non tellus. Convallis convallis tellus id interdum velit laoreet id
-            donec ultrices. Odio morbi quis commodo odio aenean sed adipiscing. Amet nisl suscipit
-            adipiscing bibendum est ultricies integer quis. Cursus euismod quis viverra nibh cras.
-            Metus vulputate eu scelerisque felis imperdiet proin fermentum leo. Mauris commodo quis
-            imperdiet massa tincidunt. Cras tincidunt lobortis feugiat vivamus at augue. At augue eget
-            arcu dictum varius duis at consectetur lorem. Velit sed ullamcorper morbi tincidunt. Lorem
-            donec massa sapien faucibus et molestie ac.
-            </Typography>
-            <Typography paragraph>
-            Consequat mauris nunc congue nisi vitae suscipit. Fringilla est ullamcorper eget nulla
-            facilisi etiam dignissim diam. Pulvinar elementum integer enim neque volutpat ac
-            tincidunt. Ornare suspendisse sed nisi lacus sed viverra tellus. Purus sit amet volutpat
-            consequat mauris. Elementum eu facilisis sed odio morbi. Euismod lacinia at quis risus sed
-            vulputate odio. Morbi tincidunt ornare massa eget egestas purus viverra accumsan in. In
-            hendrerit gravida rutrum quisque non tellus orci ac. Pellentesque nec nam aliquam sem et
-            tortor. Habitant morbi tristique senectus et. Adipiscing elit duis tristique sollicitudin
-            nibh sit. Ornare aenean euismod elementum nisi quis eleifend. Commodo viverra maecenas
-            accumsan lacus vel facilisis. Nulla posuere <a href='/'>ollicitudi</a>sn aliquam ultrices sagittis orci a.
+            Not only do indoor plants enhance the overall appearance of a space, 
+            but they've been shown to boost moods, increase creativity, reduce stress, 
+            and eliminate air pollutants — making for a healthier, happier you.
+            <br/> <br/>
+            - <a 
+                href='https://www.thesill.com/blogs/care-miscellaneous/why-you-need-plants-in-your-life#:~:text=Not%20only%20do%20indoor%20plants,for%20a%20healthier%2C%20happier%20you.'
+                style={{color: 'black'}}
+                >
+                    The Sill
+                </a>
             </Typography>
         </div>
     )

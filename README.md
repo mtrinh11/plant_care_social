@@ -27,7 +27,6 @@ With Florista you will be able to track your plants. It will tell you how to bes
 ## ERD
 
 
-## Getting Started
 
 ## Post MVP
 - set up a forum for each plant
@@ -46,9 +45,8 @@ COPY plants FROM '/home/mtrinh/ga/project4/plants.csv' DELIMITER ',' CSV HEADER;
 Todo
 -resources page
 -add pagination for search results, use the next link
--add possibility to change plant details
+1. add possibility to change plant details/edit plant page
 -do a profile pic option
-
 -notifications page
--plant identifier by photo
+-plant identifier by photo API
 
