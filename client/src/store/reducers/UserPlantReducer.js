@@ -1,4 +1,4 @@
-import {GET_USER_PLANTS, CLEAR_USER_PLANTS, GET_USER_PLANTS_DETAILS} from '../types'
+import {GET_USER_PLANTS, CLEAR_USER_PLANTS, GET_USER_PLANTS_DETAILS, CLEAR_USER_PLANTS_DETAILS} from '../types'
 
 const initialState = {
     babies: false,
@@ -13,6 +13,8 @@ const UserPlantReducer = (state = initialState, action) => {
             return {...state, babies: false}
         case GET_USER_PLANTS_DETAILS:
             return {...state, details: action.payload}
+        case CLEAR_USER_PLANTS_DETAILS:
+            return {...state, details: false}
         default:
             return {...state}
     }

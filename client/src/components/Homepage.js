@@ -13,7 +13,7 @@ const useStyles = makeStyles((theme) => ({
 
 const Homepage = (props) => {
     const classes = useStyles();
-    console.log(props)
+    
     return (
         <div style={{display: 'flex', flexDirection: 'column', alignItems: 'stretch', height: '100%', width: '100%'}}>
             <div

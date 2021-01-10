@@ -1,4 +1,4 @@
-# Plants
+#Florista
 By Minh Trinh | November 17, 2020
 
 Contact
@@ -6,7 +6,7 @@ Contact
 
 ## Description
 
-With __ you will be able to track your plants. It will tell you how to best take care of your plant and take into consideration the weather around you. 
+With Florista you will be able to track your plants. It will tell you how to best take care of your plant and take into consideration the weather around you. 
 
 ## User Stories
 
@@ -14,8 +14,6 @@ With __ you will be able to track your plants. It will tell you how to best take
 - User will be able to track their plant babies
 - User will be offered ways to take care of their plants based on the weather of their climate
 - User will be able to add friends
-- User will be able to see the plants their friends have 
-
 
 ## Technologies Used
 
@@ -34,6 +32,7 @@ With __ you will be able to track your plants. It will tell you how to best take
 ## Post MVP
 - set up a forum for each plant
 - set up live messaging between friends
+- data storage optimization and api call optimization
 
 ## Credits
 - tab icon - https://www.flaticon.com/
@@ -42,14 +41,12 @@ With __ you will be able to track your plants. It will tell you how to best take
 - converting Unix Timestamps to time -  https://stackoverflow.com/questions/847185/convert-a-unix-timestamp-to-time-in-javascript
 - images - https://unsplash.com/
 
-
 COPY plants FROM '/home/mtrinh/ga/project4/plants.csv' DELIMITER ',' CSV HEADER;
 
 Todo
 -resources page
 -add pagination for search results, use the next link
--clean up weather display
--add species page for review
+-add possibility to change plant details
 -do a profile pic option
 
 -notifications page

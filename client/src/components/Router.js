@@ -104,7 +104,7 @@ const Router = (props) => {
                 path='/search/species/:id'
                 component={(props) => (
                     <ProfileNav {...props}>
-                        <SpecificSpecies/>
+                        <SpecificSpecies {...props}/>
                     </ProfileNav>
                     )}
             />

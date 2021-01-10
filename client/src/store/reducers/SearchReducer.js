@@ -10,7 +10,7 @@ const SearchReducer = (state = initialState, action) => {
         case GET_SEARCH_RESULTS:
             return {...state, data: action.payload}
         case CLEAR_SEARCH_RESULTS:
-            return {... state, query: '', data: null}
+            return {...state, query: '', data: null}
         default:
             return {...state}
     }

@@ -39,7 +39,7 @@ const useStyles = makeStyles((theme) => ({
       duration: theme.transitions.duration.leavingScreen,
     }),
     display: 'flex',
-    backgroundColor: '#BCCCCA'
+    backgroundColor: '#b1dbb8 '
   },
   appBarShift: {
     marginLeft: drawerWidth,
@@ -190,7 +190,7 @@ const ProfileNav = (props) => {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap style={{color: '#434343'}}>
-            Hello, {props.userState.firstName}!
+            {props.userState.firstName}
           </Typography>
           <form className={classes.searchBar} noValidate onSubmit={handleSearchSubmit}>
             <CssTextField

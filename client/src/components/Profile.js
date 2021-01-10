@@ -103,7 +103,6 @@ const useStyles = makeStyles(({ breakpoints, spacing }) => ({
         left: 0,
         width: '100%',
         height: '100%',
-        backgroundImage: 'linear-gradient(147deg, #fe8a39 0%, #fd3838 74%)',
         borderRadius: spacing(2), // 16
         opacity: 0.5,
       },
@@ -143,15 +142,23 @@ const Profile = (props) => {
     return (
         <div>
             {props.weatherState.fetched ? 
-            <div>
-                <h1>{props.weatherState.name}, {props.weatherState.sys.country} </h1>
-                <h2>{date()}</h2>
-                <i className={icon(props.weatherState.description.id)} style={{fontSize: '100px', color: '#BCCCCA'}}></i>
-                <h2>{Math.round(props.weatherState.temp)}°F {(props.weatherState.description.description).replace(/\b\w/g, l => l.toUpperCase())} </h2>
-                <h2> 
-                    Sunrise: {convertUnixTimestamptoTime(props.weatherState.sys.sunrise)}  
-                    Sunset: {convertUnixTimestamptoTime(props.weatherState.sys.sunset)}
-                </h2>
+            <div style={{width: '100%', height: '200px', textAlign: 'center'}}>
+                <div style={{marginTop: '80px'}}> 
+                    <div style={{display: 'inline-block', marginRight: '40px'}}> 
+                        <h1 style={{fontSize: '3em'}}>{props.weatherState.name}, {props.weatherState.sys.country} </h1>
+                        <h2 style={{fontSize: '2em'}}> {Math.round(props.weatherState.temp)}°F {(props.weatherState.description.description).replace(/\b\w/g, l => l.toUpperCase())} </h2>
+                    </div>
+                    <div style={{display: 'inline-block', marginRight: '40px'}}> 
+                    <i className={icon(props.weatherState.description.id)} style={{fontSize: '180px', color: '#b1dbb8'}}></i>
+                    </div>
+                    <div style={{display: 'inline-block'}}> 
+                        <h2 style={{fontSize: '2em'}}>{date()}</h2>
+                        <h2> 
+                            Sunrise: {convertUnixTimestamptoTime(props.weatherState.sys.sunrise)} <br/> 
+                            Sunset: {convertUnixTimestamptoTime(props.weatherState.sys.sunset)}
+                        </h2>
+                    </div>    
+                </div>           
             </div>
             : <p>
                 Looks like we're having trouble loading your weather information... <br/>
@@ -160,7 +167,8 @@ const Profile = (props) => {
                 2. We don't have the weather for that zip code.
               </p>
             }
-            {props.userPlantState.details ? 
+            {props.userPlantState.details ? null : <p>Images are loading...</p>  }
+            {props.userPlantState.babies ? 
                 <div style={{display: 'grid', gridTemplateColumns: '50% 50%'}}> 
                     {props.userPlantState.babies.map((plant, index) => 
                         <div style={{padding: '10px 0 30px 20px', width: '90%', textAlign: 'center'}} key={index}> 
@@ -168,8 +176,9 @@ const Profile = (props) => {
                             <Card className={cx(styles.root, shadowStyles.root)}>
                                 <CardMedia
                                     className={styles.media}
-                                    image={
-                                        `${'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/1024px-No_image_available.svg.png'}`
+                                    image={ props.userPlantState.details ? (props.userPlantState.details[index].data.image_url ? props.userPlantState.details[index].data.image_url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/1024px-No_image_available.svg.png')
+                                        : 
+                                        'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/1024px-No_image_available.svg.png'
                                     }
                                 />
                                 <CardContent>
@@ -181,7 +190,7 @@ const Profile = (props) => {
                                         'Git is ang copy of the code and...'
                                     }
                                     />
-                                    <Button className={buttonStyles} style={{background: '#BCCCCA', boxShadow: 'none'}}>Edit Plant</Button>
+                                    <Button className={buttonStyles} style={{background: '#b1dbb8', boxShadow: 'none'}}>Edit Plant</Button>
                                 </CardContent>
                             </Card>
                         </div>

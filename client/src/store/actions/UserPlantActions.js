@@ -1,4 +1,4 @@
-import {GET_USER_PLANTS, CLEAR_USER_PLANTS, GET_USER_PLANTS_DETAILS} from '../types'
+import {GET_USER_PLANTS, CLEAR_USER_PLANTS, GET_USER_PLANTS_DETAILS, CLEAR_USER_PLANTS_DETAILS} from '../types'
 import {GetPlantChildren} from '../../services/UserPlantServices'
 import {GetSpecificSpeciesFromApi} from '../../services/TreffleServices'
 
@@ -35,3 +35,7 @@ export const GetUserPlantDetails = (userPlants) => async(dispatch) => {
         throw error
     }
 }
+
+export const ClearUserPlantsDetails = () => ({
+    type: CLEAR_USER_PLANTS_DETAILS
+})

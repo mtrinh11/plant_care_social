@@ -7,6 +7,13 @@ import SearchIcon from '@material-ui/icons/Search';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import Button from '@material-ui/core/Button';
 
+import Avatar from '@material-ui/core/Avatar';
+import { Row, Item } from '@mui-treasury/components/flex';
+import { Info, InfoTitle, InfoSubtitle } from '@mui-treasury/components/info';
+import { useTutorInfoStyles } from '@mui-treasury/styles/info/tutor';
+import { useDynamicAvatarStyles } from '@mui-treasury/styles/avatar/dynamic';
+import PersonIcon from '@material-ui/icons/Person';
+
 import {__GetUserByEmail, __GetUser} from '../services/UserServices'
 import {AddToUserFriends, GetUserFriends, RemoveFromUserFriends} from '../services/FriendsServices'
 
@@ -33,6 +40,14 @@ const useStyles = makeStyles((theme) => ({
     margin: {
         margin: theme.spacing(1),
     },
+    action: {
+        backgroundColor: '#fff',
+        boxShadow: '0 1px 4px 0 rgba(0,0,0,0.12)',
+        '&:hover': {
+          backgroundColor: '#fff',
+          color: '#000',
+        },
+    },
   }));
 
 const FriendsFeed = (props) => {
@@ -43,6 +58,7 @@ const FriendsFeed = (props) => {
     const [friendData, setFriendData] = useState(false)
 
     const classes = useStyles();
+    const avatarStyles = useDynamicAvatarStyles({ radius: 12, size: 90,  });
 
     console.log(props)
 
@@ -123,7 +139,6 @@ const FriendsFeed = (props) => {
                         style={{ margin: 8 }}
                         placeholder=""
                         helperText="Search for a friend by email "
-                        // fullWidth
                         margin="normal"
                         InputLabelProps={{
                             shrink: true,
@@ -141,17 +156,30 @@ const FriendsFeed = (props) => {
             </form>
             { userSearchResults.length ? 
                 <div>
-                    <p> {userSearchResults[0].firstName} {userSearchResults[0].lastName} {userSearchResults[0].email}</p>
-                    <Button 
-                        type="submit" 
-                        variant="outlined" 
-                        size="medium" 
-                        color="primary" 
-                        className={classes.margin}
-                        onClick={handleAddToFriends}
-                    >
-                        Add To Friends
-                    </Button>
+                    <Row p={1.5} gap={2} bgcolor={'#f5f5f5'} borderRadius={16}>
+                            <Item>
+                                <Avatar
+                                    classes={avatarStyles}
+                                    src={<PersonIcon/>}
+                                />
+                            </Item>
+                            <Info position={'middle'} useStyles={useTutorInfoStyles}>
+                                <InfoTitle>{userSearchResults[0].firstName} {userSearchResults[0].lastName}</InfoTitle>
+                                <InfoSubtitle>{userSearchResults[0].email}</InfoSubtitle>
+                            </Info>
+                            <Item ml={1} position={'middle'}>
+                                <Button 
+                                    type="submit" 
+                                    variant="outlined" 
+                                    size="medium" 
+                                    color="primary" 
+                                    className={classes.margin}
+                                    onClick={handleAddToFriends}
+                                >
+                                    Add To Friends
+                                </Button>
+                            </Item>
+                        </Row>
                     </div>
                 :<p>no result</p>
             }
@@ -159,18 +187,32 @@ const FriendsFeed = (props) => {
             {friendData ? 
              <div> 
                  {friendData.map((friend, index) => (
+                     
                      <div key={index}> 
-                        {friend.firstName} {friend.lastName} {friend.email}
-                        <Button 
-                            type="submit" 
-                            variant="outlined" 
-                            size="medium" 
-                            color="primary" 
-                            className={classes.margin}
-                             onClick={() => handleDeleteFromFriends(friend.relationshipId)}
-                        >
-                            Remove Friend
-                        </Button>
+                        <Row p={1.5} gap={2} bgcolor={'#f5f5f5'} borderRadius={16}>
+                            <Item>
+                                <Avatar
+                                    classes={avatarStyles}
+                                    src={<PersonIcon/>}
+                                />
+                            </Item>
+                            <Info position={'middle'} useStyles={useTutorInfoStyles}>
+                                <InfoTitle>{friend.firstName} {friend.lastName}</InfoTitle>
+                                <InfoSubtitle>{friend.email}</InfoSubtitle>
+                            </Info>
+                            <Item ml={1} position={'middle'}>
+                                <Button 
+                                    type="submit" 
+                                    variant="outlined" 
+                                    size="medium" 
+                                    color="primary" 
+                                    className={classes.margin}
+                                    onClick={() => handleDeleteFromFriends(friend.relationshipId)}
+                                >
+                                    Remove Friend
+                                </Button>
+                            </Item>
+                        </Row>
                      </div>
                  ))}
              </div>
