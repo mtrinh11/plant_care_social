@@ -191,7 +191,7 @@ const Profile = (props) => {
                                         'Git is ang copy of the code and...'
                                     }
                                     />
-                                    <Button className={buttonStyles} style={{background: '#b1dbb8', boxShadow: 'none'}}>Edit Plant</Button>
+                                    <Button onClick={() => props.history.push(`/plantchildren/${plant.id}`)} className={buttonStyles} style={{background: '#b1dbb8', boxShadow: 'none'}}>Edit Plant</Button>
                                 </CardContent>
                             </Card>
                         </div>

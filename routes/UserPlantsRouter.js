@@ -5,5 +5,6 @@ Router.post('/create', controller.CreateUserPlant)
 Router.get('/children/:id', controller.GetAllUserPlants)
 Router.put('/update/:id', controller.UpdatePlantDetails)
 Router.delete('/delete/:id', controller.DeletePlant)
+Router.get('/child/:id', controller.GetOneUserPlant)
 
 module.exports = Router;

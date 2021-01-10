@@ -18,6 +18,15 @@ export const GetPlantChildren = async(userId) => {
     }
 }
 
+export const GetOnePlantChild = async(plantId) => {
+    try {
+        let res = await ApiClient.get(`/plants/child/${plantId}`)
+        return res.data[0]
+    } catch (error) {
+        throw error
+    }
+}
+
 export const UpdatePlantChild = async(plantId, formData) => {
     try {
         let res = await ApiClient.put(`/plants/update/${plantId}`, formData)

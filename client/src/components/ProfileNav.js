@@ -228,10 +228,10 @@ const ProfileNav = (props) => {
             <ListItemIcon> <HomeIcon /> </ListItemIcon>
             <ListItemText> Home </ListItemText>
           </ListItem>
-          <ListItem button onClick={() => props.history.push('/plantchildren')}>
+          {/* <ListItem button onClick={() => props.history.push('/plantchildren')}>
             <ListItemIcon> <EcoIcon /> </ListItemIcon>
             <ListItemText> Your Plants </ListItemText>
-          </ListItem>
+          </ListItem> */}
         </List>
         <Divider />
         <ListItem button onClick={() => props.history.push('/friends')}>

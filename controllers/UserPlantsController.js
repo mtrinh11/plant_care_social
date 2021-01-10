@@ -12,6 +12,18 @@ const GetAllUserPlants = async (req, res) => {
     }
 }
 
+const GetOneUserPlant = async(req, res) => {
+    try {
+        const plant = await UserPlants.findAll({
+            where: { id: req.params.id}
+        })
+        res.send(plant)
+    } catch (error) {
+        res.status(400).send({ message: 'Bad Request'})
+        throw error
+    }
+}
+
 const CreateUserPlant = async (req, res) => {
     try {
         const {name, parent, birthday, TreffleId} = req.body
@@ -56,5 +68,6 @@ module.exports = {
     GetAllUserPlants,
     CreateUserPlant,
     DeletePlant,
-    UpdatePlantDetails
+    UpdatePlantDetails,
+    GetOneUserPlant
 }

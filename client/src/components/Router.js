@@ -10,7 +10,7 @@ import ProtectedRoute from './ProtectedRoute'
 import ProfileNav from './ProfileNav'
 import SearchResults from './SearchResults'
 import SpecificSpecies from './SpecificSpecies'
-import UserPlants from './UserPlants'
+import EditUserPlants from './EditUserPlants'
 import AccountSettings from './AccountSettings'
 import FriendsFeed from './FriendsFeed';
 
@@ -68,7 +68,7 @@ const Router = (props) => {
                 path='/profile'
                 component={(props) => (
                     <ProfileNav {...props}>
-                        <Profile/>
+                        <Profile {...props}/>
                     </ProfileNav>
                 )}
             />
@@ -110,10 +110,10 @@ const Router = (props) => {
             />
             <ProtectedRoute 
                 exact 
-                path='/plantchildren'
+                path='/plantchildren/:id'
                 component={(props) => (
                     <ProfileNav {...props}>
-                        <UserPlants/>
+                        <EditUserPlants {...props}/>
                     </ProfileNav>
                     )}
             />

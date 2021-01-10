@@ -69,6 +69,7 @@ const SearchResults = (props) => {
     const classes = useStyles();
 
     const addToUserPlants = async(n, p, bday, tId) => {
+        console.log(bday)
         let formData = {
             name: n,
             parent: p,
