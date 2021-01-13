@@ -23,7 +23,7 @@
     "sequelize-cli": "^6.2.0"
   },
   "scripts": {
-    "start": "npm run build && node server.js",
+    "start": "npm run build && npm run migrate && node server.js",
     "dev": "nodemon server.js",
     "build": "npm install && cd ./client && npm install && npm run build && cd ../",
     "migrate": "./node_modules/.bin/sequelize-cli db:migrate"
