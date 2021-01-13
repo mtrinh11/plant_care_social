@@ -7,6 +7,7 @@ Contact
 ## Description
 
 With Florista you will be able to track your plants. It will tell you how to best take care of your plant and take into consideration the weather around you. 
+Deployed At: http://florista-dev.us-west-1.elasticbeanstalk.com/
 
 ## Notes
 
