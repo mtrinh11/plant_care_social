@@ -1,5 +1,5 @@
 # Florista
-By Minh Trinh | November 17, 2020
+By Minh Trinh | January 12, 2021
 
 Contact
 [LinkedIn](https://www.linkedin.com/in/m-trinh/) | [Github](https://github.com/mtrinh11)
