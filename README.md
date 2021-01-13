@@ -8,6 +8,10 @@ Contact
 
 With Florista you will be able to track your plants. It will tell you how to best take care of your plant and take into consideration the weather around you. 
 
+## Notes
+
+A lot sources were used in this project, especially for the weather display (which explains the large amount of css), so please refer to the credits at the bottom of the readme!
+
 ## User Stories
 
 - User will be able to create an account

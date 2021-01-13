@@ -26,7 +26,6 @@ export const GetUserPlantDetails = (userPlants) => async(dispatch) => {
             let res = await GetSpecificSpeciesFromApi(plant.TreffleId)
             data.push(res.data)
         }
-        console.log(data)
         dispatch({
             type: GET_USER_PLANTS_DETAILS,
             payload: data

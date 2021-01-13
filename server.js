@@ -13,10 +13,8 @@ app.use(cors())
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(morgan('dev'))
-app.use(express.static(path.join(__dirname, 'client', 'build')))
+app.use(express.static(path.join(__dirname, 'client', 'build', 'index.html')))
 
-
-app.get('/', (req, res) => res.json({ message: 'Server Works' }))
 app.use('/api', AppRouter)
 
 app.get('*', (req, res) =>

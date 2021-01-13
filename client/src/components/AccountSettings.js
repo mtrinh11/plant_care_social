@@ -57,7 +57,6 @@ const AccountSettings = (props) => {
         }
     }
 
-    // console.log(props)
     return (
         <div>
             {props.userState.authenticated ? 

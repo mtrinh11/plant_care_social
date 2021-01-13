@@ -2,3 +2,9 @@ package-lock.json
 node_modules
 .env
 plants.csv
+awscliv2.zip
+aws
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml

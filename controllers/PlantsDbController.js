@@ -33,7 +33,6 @@ const GetPlantsByApiSearch = async (req, res) => {
 const GetPlantSpeciesDetailsByApi = async(req, res) => {
     try {
         const data = await request.get(`/api/v1/species/${req.params.id}?token=${API_KEY}`)
-        console.log(data.data)
         res.send(data.data)
     } catch (error) {
         res.status(400).send({message: `Trefle Database is down`})

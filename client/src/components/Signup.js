@@ -52,7 +52,7 @@ const Signup = (props) => {
             throw error
         }
     }
-    console.log(props)
+
     return (
         <div style={{display: 'flex', alignItems: 'stretch', height: '100%', width: '100%'}}>
             <div style={{

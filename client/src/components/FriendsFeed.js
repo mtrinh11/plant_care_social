@@ -60,8 +60,6 @@ const FriendsFeed = (props) => {
     const classes = useStyles();
     const avatarStyles = useDynamicAvatarStyles({ radius: 12, size: 90,  });
 
-    console.log(props)
-
     const handleSubmit = async(e) => {
         e.preventDefault()
         try {
@@ -83,7 +81,6 @@ const FriendsFeed = (props) => {
                 friendId: userSearchResults[0].id
             }
             let res = await AddToUserFriends(formData)
-            console.log(res)
             fetchUserFriends()
         } catch (error) {
             throw error
@@ -93,7 +90,6 @@ const FriendsFeed = (props) => {
     const handleDeleteFromFriends = async(relationId) => {
         try {
             let res = await RemoveFromUserFriends(relationId)
-            console.log(res)
             fetchUserFriends()
         } catch (error) {
             throw error
@@ -118,14 +114,12 @@ const FriendsFeed = (props) => {
                 res["relationshipId"] = friend.id
                 data.push(res)
             }
-            console.log(data)
             setFriendData(data)
         } catch (error) {
             throw error
         }
     }
 
-    console.log(userFriends)
     if (!userFriends) {
         fetchUserFriends()
     }

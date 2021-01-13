@@ -67,7 +67,6 @@ const EditUserPlants = (props) => {
         fetchChildData()
     }
 
-    console.log(props, birthdayInput)
     return (
         <div>
             { loading ?

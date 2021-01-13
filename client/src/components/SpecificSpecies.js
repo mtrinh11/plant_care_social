@@ -58,9 +58,6 @@ const SpecificSpecies = (props) => {
         props.history.push('/profile')
     }
 
-    console.log(props)
-    console.log(speciesData)
-
     if (loading) {
         fetch()
     }
@@ -142,8 +139,6 @@ const SpecificSpecies = (props) => {
         createData('Shape and Orientation', (speciesData.specifications ? checkNullorFalse(speciesData.specifications.shape_and_orientation) : 'No Info')),
         createData('Toxicity', (speciesData.specifications ? checkNullorFalse(speciesData.specifications.toxicity) : 'No Info')),
     ]
-
-    console.log(props)
 
     return ( 
         loading ? (

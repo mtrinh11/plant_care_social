@@ -138,7 +138,6 @@ const Profile = (props) => {
         props.getUserPlantDisplayData(props.userPlantState.babies)
     }
 
-    console.log(props)
     return (
         <div>
             {props.weatherState.fetched ? 
@@ -173,7 +172,6 @@ const Profile = (props) => {
                 <div style={{display: 'grid', gridTemplateColumns: '50% 50%'}}> 
                     {props.userPlantState.babies.map((plant, index) => 
                         <div style={{padding: '10px 0 30px 20px', width: '90%', textAlign: 'center'}} key={index}> 
-                        {console.log(plant)}
                             <Card className={cx(styles.root, shadowStyles.root)}>
                                 <CardMedia
                                     className={styles.media}
